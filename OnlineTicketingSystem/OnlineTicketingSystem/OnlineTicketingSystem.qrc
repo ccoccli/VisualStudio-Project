@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/OnlineTicketingSystem">
+        <file>res/icon.png</file>
+        <file>res/tittle.png</file>
+        <file>res/login.png</file>
+        <file>res/coupon.png</file>
+        <file>res/setting.png</file>
+        <file>res/star.png</file>
+        <file>res/tools.png</file>
+        <file>res/evaluate.png</file>
+        <file>res/Operation tips.png</file>
+        <file>res/pay.png</file>
+        <file>res/Piggy bank.png</file>
+        <file>res/Price calculation.png</file>
+        <file>res/schedule.png</file>
+        <file>res/tittle_setting.png</file>
+        <file>res/tittle_coupon.png</file>
+        <file>res/title_funds.png</file>
+        <file>res/tittle_Piggybank.png</file>
+        <file>res/tittle_route.png</file>
+        <file>res/tittle_stars.png</file>
+        <file>res/tittle_tips.png</file>
+        <file>res/tittle_tools.png</file>
+        <file>res/location.png</file>
+        <file>res/user.png</file>
+        <file>res/caret-left.png</file>
+        <file>res/SignUp_tittle.png</file>
+        <file>res/tittle_username.png</file>
+        <file>res/tittle_pwd.png</file>
+        <file>res/tittle_phone.png</file>
+        <file>res/tittle_addr.png</file>
+        <file>res/tittle_age.png</file>
+        <file>res/tittle_mail.png</file>
+        <file>res/btn_ok.png</file>
+        <file>res/tittle_signin.png</file>
+    </qresource>
+</RCC>

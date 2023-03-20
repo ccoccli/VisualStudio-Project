@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OnlineTicketingSystemClass</class>
+ <widget class="QMainWindow" name="OnlineTicketingSystemClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Tule</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#OnlineTicketingSystemClass
+{
+	background :qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(51, 53, 144), stop:0.2 rgb(98, 57, 162),stop:0.4 rgb(126, 53, 163),stop:0.6 rgb(187 ,25, 134),stop:0.8 rgb(248, 0, 97),stop:1 rgb(203, 60, 89))
+}
+#pushButton
+{
+	background : transparent;
+}
+#pushButton:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_2
+{
+	background : transparent;
+}
+#pushButton_2:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_2:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_3
+{
+	background : transparent;
+}
+#pushButton_3:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_3:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_4
+{
+	background : transparent;
+}
+#pushButton_4:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_4:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_5
+{
+	background : transparent;
+}
+#pushButton_5:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_5:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_6
+{
+	background : transparent;
+}
+#pushButton_6:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_6:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_7
+{
+	background : transparent;
+}
+#pushButton_7:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_7:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_8
+{
+	background : transparent;
+}
+#pushButton_8:hover
+{
+	border : 1px solid white;
+	border-radius : 30px;
+}
+#pushButton_8:pressed
+{
+	border : 1px solid white;
+	border-radius : 30px;
+	background:gray;
+}
+
+#pushButton_9
+{
+	background : transparent;
+}
+#pushButton_9:hover
+{
+	border : 1px solid white;
+	border-radius : 10px;
+}
+#pushButton_9:pressed
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background:gray;
+}
+
+#pushButton_10
+{
+	background : transparent;
+}
+#pushButton_10:hover
+{
+	border : 1px solid white;
+	border-radius : 10px;
+}
+#pushButton_10:pressed
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background:gray;
+}
+
+#pushButton_11
+{
+	background : transparent;
+}
+#pushButton_11:hover
+{
+	border : 1px solid white;
+	border-radius : 10px;
+}
+#pushButton_11:pressed
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background:gray;
+}
+
+#pushButton_12
+{
+	background : transparent;
+}
+#pushButton_12:hover
+{
+	border : 1px solid white;
+	border-radius : 10px;
+}
+#pushButton_12:pressed
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background:gray;
+}
+#namelineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+#pwdlineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+#phonelineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+#addrlineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+#maillineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+
+#pushButton_13
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background : transparent;
+}
+#pushButton_13:hover
+{
+	border : 1px solid white;
+	border-radius : 20px;
+}
+#pushButton_13:pressed
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background:gray;
+}
+
+#pushButton_14
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background : transparent;
+}
+#pushButton_14:hover
+{
+	border : 1px solid white;
+	border-radius : 20px;
+}
+#pushButton_14:pressed
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background:gray;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>210</y>
+      <width>300</width>
+      <height>300</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>510</y>
+      <width>300</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>130</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>340</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>570</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>570</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>340</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>140</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>20</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>20</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>640</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>420</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>640</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>420</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>210</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>90</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>90</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>210</y>
+      <width>111</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>210</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>400</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>560</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="signup">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>0</y>
+      <width>461</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="username">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>150</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pwd">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>250</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="phone">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>350</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mail">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>450</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="addr">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>550</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="namelineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>180</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="pwdlineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>280</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="phonelineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>380</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="maillineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>480</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="addrlineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>580</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_13">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>650</y>
+      <width>241</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="signin">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>0</y>
+      <width>461</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_14">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>650</y>
+      <width>241</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="OnlineTicketingSystem.qrc"/>
+ </resources>
+ <connections/>
+</ui>
