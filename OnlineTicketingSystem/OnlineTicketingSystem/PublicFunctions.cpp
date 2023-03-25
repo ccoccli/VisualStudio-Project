@@ -195,3 +195,19 @@ usrInfo readXmlFile()
 
   return tempData;
 }
+
+bool connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName)
+{
+  MYSQL mysql;
+  mysql_init(&mysql);//初始化mysql变量;
+  if (!(mysql_real_connect(&mysql, connIPAddr.c_str(), usrName.c_str(), usrPwd.c_str(), dbName.c_str(), port, NULL, 0)))
+  {
+    qDebug()<<__FILE__ << __FUNCTION__ << __LINE__ << __DATE__ <<"connect fail!"<<mysql_error(&mysql);
+    return false;
+  }
+  else
+  {
+    qDebug()<< __FILE__<<__FUNCTION__<<__LINE__<<__DATE__<<"connect success!";
+    return true;
+  }
+}

@@ -1,7 +1,9 @@
 #pragma once
-#pragma comment(lib,"ws2_32.lib")
-#include "tinyxml.h"
 
+#pragma comment(lib,"ws2_32.lib")
+
+#include "tinyxml.h"
+#include <mysql.h>
 #include <QFile>
 #include <QString>
 #include <QByteArray>
@@ -57,9 +59,19 @@ usrInfo readUserDataJsonFile(int usrId);
  * \param usrAddr   : addr
  */
 bool writeXmlFile(int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr);
-
 /*
  * \brief read xml data
  * \return usrInfo : userinfo
  */
 usrInfo readXmlFile();
+
+/*
+ * \brief connect mysql databse
+ * \param connIPAddr->ip address
+ * \param usrName->database name
+ * \param usrPwd->database password
+ * \param port-> database connect port
+ * \param dbName->database name
+ * \return connect mysql database success or fail
+ */
+bool connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName);

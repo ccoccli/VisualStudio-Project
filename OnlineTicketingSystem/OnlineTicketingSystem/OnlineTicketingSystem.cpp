@@ -286,8 +286,9 @@ void OnlineTicketingSystem::on_pushButton_13_clicked()
                   /*json文件保存数据被舍弃，采用xml保存*/
                   //bool isWrite = writeUserDataJsonFile(0 + rand() % 99999999, ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text());
                   bool isWrite_2 = writeXmlFile(0 + rand() % 99999999, ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text());
-                  
-                  if (isWrite_2)
+                  bool isConn = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
+
+                  if (isConn)
                   {
                     QMessageBox::information(this, "Sign up success", "Sign up success");
 
