@@ -196,12 +196,70 @@ usrInfo readXmlFile()
   return tempData;
 }
 
-bool connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName)
+MYSQL* connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName)
 {
-  MYSQL mysql;
-  mysql_init(&mysql);
-  if (!(mysql_real_connect(&mysql, connIPAddr.c_str(), usrName.c_str(), usrPwd.c_str(), dbName.c_str(), port, NULL, 0)))
-    return false;
+  MYSQL* mysql = new MYSQL();
+
+  mysql_init(mysql);
+
+  if (!(mysql_real_connect(mysql, connIPAddr.c_str(), usrName.c_str(), usrPwd.c_str(), dbName.c_str(), port, NULL, 0)))
+    return mysql;
   else
+    return mysql;
+}
+
+usrInfo selectFromDB(MYSQL* mysql, int usrId)
+{
+  usrInfo temp;
+
+  std::string strtemp = "\"";
+
+  std::string strSQL = "select user_name,user_pwd from base_info where user_id =" + strtemp + std::to_string(usrId) + strtemp + ";";
+
+  if (!mysql_real_query(mysql, strSQL.c_str(), (unsigned int)strlen(strSQL.c_str())))
+  {
+    MYSQL_ROW row;
+    MYSQL_RES* result = mysql_store_result(mysql);
+
+    while (row = mysql_fetch_row(result))
+    {
+      temp.usrName = row[0];
+      temp.usrPwd = row[1];
+    }
+
+    mysql_close(mysql);
+
+    return temp;
+  }
+  else
+  {
+    qDebug() << "select error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return temp;
+  }
+}
+
+bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr)
+{
+  std::string temp = "\"";
+  std::string query = "insert into base_info (user_name,user_id,user_sex,user_phone,user_mail,user_pwd,user_home_addr,user_birthday) values (" + temp + usrName.toStdString() + temp + "," + temp + std::to_string(usrId) + temp + "," + temp + "NULL" + temp  + "," + temp + usrPhone.toStdString() + temp + ", " + temp + usrMail.toStdString() + temp + ", " + temp + usrPwd.toStdString() + temp + "," + temp +  "NULL" + temp +"," + temp + "NULL" + temp + ")";
+  
+  if (!mysql_real_query(mysql, query.c_str(), (unsigned int)strlen(query.c_str())))
+  {
+    qDebug() << "Inserted rows" << (unsigned long)mysql_affected_rows(mysql);
+
+    mysql_close(mysql);
+
     return true;
+  }
+  else 
+  {
+    qDebug() << "Insert error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return false;
+  }
 }

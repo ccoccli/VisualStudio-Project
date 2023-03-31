@@ -7,6 +7,8 @@
 #include "PublicFunctions.h"
 #include <QPropertyAnimation>
 
+static usrInfo userData;
+
 class OnlineTicketingSystem : public QMainWindow
 {
   Q_OBJECT
@@ -118,4 +120,10 @@ private slots:
    * \return null
    */
   void on_pushButton_13_clicked();
+  /*
+  * \brief login func
+  * \param null
+  * \return null
+  */
+  void on_pushButton_14_clicked();
 };

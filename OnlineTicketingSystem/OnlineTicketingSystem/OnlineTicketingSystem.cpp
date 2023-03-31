@@ -25,6 +25,8 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   /*signin ui*/
   ui.signin->hide();
   ui.pushButton_14->hide();
+  ui.usrIdlineEdit->hide();
+  ui.usrId->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -56,10 +58,11 @@ void OnlineTicketingSystem::interfaceInit()
   ui.addr->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_addr.png").scaled(ui.addr->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   ui.pushButton_13->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
   ui.pushButton_13->setIconSize(ui.pushButton_13->size());
+  ui.usrId->setPixmap(QPixmap(":/OnlineTicketingSystem/res/usrId.png").scaled(ui.usrId->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   /*sign in ui*/
   ui.signin->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_signin.png").scaled(ui.signin->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   ui.pushButton_14->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
-  ui.pushButton_14->setIconSize(ui.pushButton_13->size());
+  ui.pushButton_14->setIconSize(ui.pushButton_14->size());
   /*set windows icon*/
   this->setWindowIcon(QIcon(":/OnlineTicketingSystem/res/icon.png"));
   /*menu icon*/
@@ -170,6 +173,10 @@ void OnlineTicketingSystem::showUi()
   /*signin ui*/
   ui.signin->hide();
   ui.pushButton_14->hide();
+  ui.usrIdlineEdit->hide();
+  ui.usrId->hide();
+
+  ui.usrIdlineEdit->clear();
 }
 
 void OnlineTicketingSystem::on_pushButton_clicked()
@@ -243,6 +250,8 @@ void OnlineTicketingSystem::on_pushButton_10_clicked()
   ui.namelineEdit->show();
   ui.pwdlineEdit->show();
   ui.pushButton_14->show();
+  ui.usrIdlineEdit->show();
+  ui.usrId->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_11_clicked()
@@ -260,14 +269,19 @@ void OnlineTicketingSystem::on_pushButton_13_clicked()
   /*create rand user id*/
   srand((unsigned)time(NULL));
 
+  /*用户名不能为空*/
   if (ui.namelineEdit->text() != "")
   {
+    /*密码不能为空*/
     if (ui.pwdlineEdit->text() != "")
     {
+      /*电话不能为空*/
       if (ui.phonelineEdit->text() != "")
       {
+        /*邮箱不能为空*/
         if (ui.maillineEdit->text() != "")
         {
+          /*地址不能为空*/
           if (ui.addrlineEdit->text() != "")
           {
             //强制密码8-16位且必须为数字、大小写字母或符号中至少2种
@@ -283,18 +297,15 @@ void OnlineTicketingSystem::on_pushButton_13_clicked()
                 std::regex rMail("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
                 if (std::regex_match(ui.maillineEdit->text().toStdString(), rMail))
                 {
-                  /*json文件保存数据被舍弃，采用xml保存*/
-                  //bool isWrite = writeUserDataJsonFile(0 + rand() % 99999999, ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text());
-                  bool isWrite_2 = writeXmlFile(0 + rand() % 99999999, ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text());
-                  bool isConn = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
+                  MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
 
-                  if (isConn)
+                  int usrId = 0 + rand() % 99999999;
+                  if (insertData(mysql, usrId, ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text()))
                   {
-                    QMessageBox::information(this, "Sign up success", "Sign up success");
+                    QString tittleContent = QString("Sign up success, please remember your id is %0").arg(usrId);
 
-                    /*test read xml*/
-                    usrInfo  tmp = readXmlFile();
-                    qDebug() << tmp.usrId << " " << tmp.usrName << " " << tmp.usrPwd << " " << tmp.usrPhone << " " << tmp.usrMail << " " << tmp.usrAddr;
+                    QMessageBox::information(this, "Sign up success", tittleContent);
+
                     showUi();
                   }
                   else
@@ -341,5 +352,49 @@ void OnlineTicketingSystem::on_pushButton_13_clicked()
   else
   {
     QMessageBox::information(this, "Sign up fail", "User name cannot be empty!");
+  }
+}
+void OnlineTicketingSystem::on_pushButton_14_clicked()
+{
+  MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
+
+  userData = selectFromDB(mysql, atoi(ui.usrIdlineEdit->text().toStdString().c_str()));
+
+  /*用户名不能为空*/
+  if (ui.namelineEdit->text() != "")
+  {
+    /*密码不能为空*/
+    if (ui.pwdlineEdit->text() != "")
+    {
+      if (ui.usrIdlineEdit->text() != "")
+      {
+        if (userData.usrName == ui.namelineEdit->text() && userData.usrPwd == ui.pwdlineEdit->text())
+        {
+          QMessageBox::information(this, "login success", "login success");
+
+          showUi();
+        }
+        else
+        {
+          QMessageBox::information(this, "login fail", "name or password or id is error, please try again!");
+
+          ui.namelineEdit->clear();
+          ui.pwdlineEdit->clear();
+          ui.usrIdlineEdit->clear();
+        }
+      }
+      else
+      {
+        QMessageBox::information(this, "login fail", "usrId cannot be empty!");
+      }
+    }
+    else
+    {
+      QMessageBox::information(this, "login fail", "password cannot be empty!");
+    }
+  }
+  else
+  {
+    QMessageBox::information(this, "login fail", "user name cannot be empty!");
   }
 }

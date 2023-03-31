@@ -33,5 +33,6 @@
         <file>res/tittle_mail.png</file>
         <file>res/btn_ok.png</file>
         <file>res/tittle_signin.png</file>
+        <file>res/usrId.png</file>
     </qresource>
 </RCC>

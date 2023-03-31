@@ -29,6 +29,8 @@ typedef struct usrInfo
   QString usrMail;
   QString usrAddr;
 };
+
+static MYSQL_RES* m_SelectResult;
 /*
  * \brief read json data
  * \param usrId     : id
@@ -65,6 +67,7 @@ bool writeXmlFile(int usrId, QString usrName, QString usrPwd, QString usrPhone, 
  */
 usrInfo readXmlFile();
 
+
 /*
  * \brief connect mysql databse
  * \param connIPAddr->ip address
@@ -74,4 +77,24 @@ usrInfo readXmlFile();
  * \param dbName->database name
  * \return connect mysql database success or fail
  */
-bool connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName);
+MYSQL* connMySQLDataBase(std::string connIPAddr, std::string usrName, std::string usrPwd, int port, std::string dbName);
+
+/*
+ * \brief select data from database
+ * \param usrId     : id
+ * \return usrInfo : userinfo
+ */
+usrInfo selectFromDB(MYSQL* mysql, int usrId);
+
+/*
+ * \brief insert user data to database
+ * \param usrId     : id
+ * \param usrName   : name
+ * \param usrPwd    : pwd
+ * \param usrAge    : age
+ * \param usrPhone  : phone
+ * \param usrMail   : mail
+ * \param usrAddr   : addr
+ * \return usrInfo : userinfo
+ */
+bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr);
