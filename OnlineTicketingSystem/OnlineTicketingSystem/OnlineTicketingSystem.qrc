@@ -34,5 +34,6 @@
         <file>res/btn_ok.png</file>
         <file>res/tittle_signin.png</file>
         <file>res/usrId.png</file>
+        <file>res/modifyInfo.png</file>
     </qresource>
 </RCC>

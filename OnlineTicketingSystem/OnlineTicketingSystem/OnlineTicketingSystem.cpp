@@ -42,6 +42,18 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.info9->hide();
   ui.info10->hide();
   ui.info11->hide();
+
+  /*modify info*/
+  ui.modifyInfo->hide();
+  ui.pushButton_15->hide();
+
+  ui.stars->hide();
+  ui.coupon->hide();
+  ui.setting->hide();
+  ui.tools->hide();
+  ui.route->hide();
+  ui.funds->hide();
+  ui.pb->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -86,6 +98,29 @@ void OnlineTicketingSystem::interfaceInit()
   ui.signin->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_signin.png").scaled(ui.signin->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   ui.pushButton_14->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
   ui.pushButton_14->setIconSize(ui.pushButton_14->size());
+
+  /*modify info*/
+  ui.modifyInfo->setPixmap(QPixmap(":/OnlineTicketingSystem/res/modifyInfo.png").scaled(ui.modifyInfo->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.pushButton_15->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
+  ui.pushButton_15->setIconSize(ui.pushButton_15->size());
+
+  /*stars*/
+  ui.stars->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_stars.png").scaled(ui.stars->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+  /*coupon*/
+  ui.coupon->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_coupon.png").scaled(ui.coupon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+  /*setting*/
+  ui.setting->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_setting.png").scaled(ui.setting->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+  /*tools*/
+  ui.tools->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_tools.png").scaled(ui.tools->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  /*route*/
+  ui.route->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_route.png").scaled(ui.route->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  /*funds*/
+  ui.funds->setPixmap(QPixmap(":/OnlineTicketingSystem/res/title_funds.png").scaled(ui.funds->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  /*Piggybank*/
+  ui.pb->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_Piggybank.png").scaled(ui.pb->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   /*set windows icon*/
   this->setWindowIcon(QIcon(":/OnlineTicketingSystem/res/icon.png"));
   /*menu icon*/
@@ -200,6 +235,10 @@ void OnlineTicketingSystem::showUi()
   ui.usrId->hide();
 
   ui.usrIdlineEdit->clear();
+
+  ui.modifyInfo->hide();
+
+  ui.pushButton_15->hide();
 }
 
 void OnlineTicketingSystem::on_pushButton_clicked()
@@ -258,36 +297,51 @@ void OnlineTicketingSystem::on_pushButton_clicked()
 void OnlineTicketingSystem::on_pushButton_2_clicked()
 {
   hideUi();
+
+  ui.coupon->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_3_clicked()
 {
   hideUi();
+
+  ui.setting->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_4_clicked()
 {
   hideUi();
+
+  ui.stars->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_5_clicked()
 {
   hideUi();
+
+  ui.tools->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_6_clicked()
 {
   hideUi();
+
+  ui.pb->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_7_clicked()
 {
   hideUi();
+
+  ui.funds->show();
+
 }
 
 void OnlineTicketingSystem::on_pushButton_8_clicked()
 {
   hideUi();
+
+  ui.route->show();
 }
 
 /*main menu sign up btn*/
@@ -325,7 +379,29 @@ void OnlineTicketingSystem::on_pushButton_10_clicked()
 
 void OnlineTicketingSystem::on_pushButton_11_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
+
+    ui.username->show();
+    ui.pwd->show();
+    ui.phone->show();
+    ui.mail->show();
+    ui.addr->show();
+    ui.namelineEdit->show();
+    ui.pwdlineEdit->show();
+    ui.phonelineEdit->show();
+    ui.maillineEdit->show();
+    ui.addrlineEdit->show();
+
+    ui.modifyInfo->show();
+
+    ui.pushButton_15->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before modifying your information");
+  }
 }
 /*reback btn*/
 void OnlineTicketingSystem::on_pushButton_12_clicked()
@@ -368,6 +444,22 @@ void OnlineTicketingSystem::on_pushButton_12_clicked()
   ui.info9->hide();
   ui.info10->hide();
   ui.info11->hide();
+
+  ui.modifyInfo->hide();
+
+  if (isLogin)
+  {
+    ui.pushButton_10->setEnabled(false);
+  }
+
+  ui.stars->hide();
+  ui.coupon->hide();
+  ui.setting->hide();
+  ui.tools->hide();
+  
+  ui.route->hide();
+  ui.funds->hide();
+  ui.pb->hide();
 }
 /*sign up interface ok btn*/
 void OnlineTicketingSystem::on_pushButton_13_clicked()
@@ -460,6 +552,7 @@ void OnlineTicketingSystem::on_pushButton_13_clicked()
     QMessageBox::information(this, "Sign up fail", "User name cannot be empty!");
   }
 }
+
 void OnlineTicketingSystem::on_pushButton_14_clicked()
 {
   MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
@@ -483,6 +576,8 @@ void OnlineTicketingSystem::on_pushButton_14_clicked()
           usrId = ui.usrIdlineEdit->text();
 
           showUi();
+
+          ui.pushButton_10->setEnabled(false);
         }
         else
         {
@@ -506,5 +601,92 @@ void OnlineTicketingSystem::on_pushButton_14_clicked()
   else
   {
     QMessageBox::information(this, "login fail", "user name cannot be empty!");
+  }
+}
+
+void OnlineTicketingSystem::on_pushButton_15_clicked()
+{
+  /*用户名不能为空*/
+  if (ui.namelineEdit->text() != "")
+  {
+    /*密码不能为空*/
+    if (ui.pwdlineEdit->text() != "")
+    {
+      /*电话不能为空*/
+      if (ui.phonelineEdit->text() != "")
+      {
+        /*邮箱不能为空*/
+        if (ui.maillineEdit->text() != "")
+        {
+          /*地址不能为空*/
+          if (ui.addrlineEdit->text() != "")
+          {
+            //强制密码8-16位且必须为数字、大小写字母或符号中至少2种
+            std::regex rPwd("^(?![\\d]+$)(?![a-zA-Z]+$)(?![^\\da-zA-Z]+$).{8,16}$");
+            if (std::regex_match(ui.pwdlineEdit->text().toStdString(), rPwd))
+            {
+              //验证手机号码
+              std::regex r("^1(3|5|8|7|9)\\d{9}$");
+
+              if (std::regex_match(ui.phonelineEdit->text().toStdString(), r))
+              {
+                //验证邮箱
+                std::regex rMail("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
+                if (std::regex_match(ui.maillineEdit->text().toStdString(), rMail))
+                {
+                  MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "user_info");
+
+                  if (changeData(mysql, usrId.toInt(), ui.namelineEdit->text(), ui.pwdlineEdit->text(), ui.phonelineEdit->text(), ui.maillineEdit->text(), ui.addrlineEdit->text()))
+                  {
+                    QString tittleContent = QString("modify success, please remember your new information!");
+
+                    QMessageBox::information(this, "modify success", tittleContent);
+
+                    showUi();
+                  }
+                  else
+                    QMessageBox::information(this, "modify fail", "modify fail");
+                }
+                else
+                {
+                  QMessageBox::information(this, "modify fail", "Please enter the correct email format!");
+                  ui.maillineEdit->clear();
+                }
+              }
+              else
+              {
+                QMessageBox::information(this, "modify fail", "Please enter the correct phone number format!");
+                ui.phonelineEdit->clear();
+              }
+            }
+            else
+            {
+              QMessageBox::information(this, "modify fail", "The password must be 8-16 digits and must contain at least 2 types of numbers, uppercase and lowercase letters, or symbols!");
+              ui.pwdlineEdit->clear();
+            }
+          }
+          else
+          {
+            QMessageBox::information(this, "modify fail", "address cannot be empty!");
+          }
+        }
+        else
+        {
+          QMessageBox::information(this, "modify fail", "mail cannot be empty!");
+        }
+      }
+      else
+      {
+        QMessageBox::information(this, "modify fail", "phone cannot be empty!");
+      }
+    }
+    else
+    {
+      QMessageBox::information(this, "modify fail", "password cannot be empty!");
+    }
+  }
+  else
+  {
+    QMessageBox::information(this, "modify fail", "User name cannot be empty!");
   }
 }

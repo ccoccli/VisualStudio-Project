@@ -68,7 +68,6 @@ bool writeXmlFile(int usrId, QString usrName, QString usrPwd, QString usrPhone, 
  */
 usrInfo readXmlFile();
 
-
 /*
  * \brief connect mysql databse
  * \param connIPAddr->ip address
@@ -99,3 +98,15 @@ usrInfo selectFromDB(MYSQL* mysql, int usrId);
  * \return usrInfo : userinfo
  */
 bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr);
+/*
+ * \brief change user data to database
+ * \param usrId     : id
+ * \param usrName   : name
+ * \param usrPwd    : pwd
+ * \param usrAge    : age
+ * \param usrPhone  : phone
+ * \param usrMail   : mail
+ * \param usrAddr   : addr
+ * \return usrInfo : userinfo
+ */
+bool changeData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr);

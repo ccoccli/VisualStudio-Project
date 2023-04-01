@@ -244,7 +244,7 @@ usrInfo selectFromDB(MYSQL* mysql, int usrId)
 bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr)
 {
   std::string temp = "\"";
-  std::string query = "insert into base_info (user_name,user_id,user_sex,user_phone,user_mail,user_pwd,user_home_addr,user_birthday) values (" + temp + usrName.toStdString() + temp + "," + temp + std::to_string(usrId) + temp + "," + temp + "NULL" + temp  + "," + temp + usrPhone.toStdString() + temp + ", " + temp + usrMail.toStdString() + temp + ", " + temp + usrPwd.toStdString() + temp + "," + temp +  "NULL" + temp +"," + temp + "NULL" + temp + ")";
+  std::string query = "insert into base_info (user_name,user_id,user_sex,user_phone,user_mail,user_pwd,user_home_addr,user_birthday) values (" + temp + usrName.toStdString() + temp + "," + temp + std::to_string(usrId) + temp + "," + temp + "NULL" + temp  + "," + temp + usrPhone.toStdString() + temp + ", " + temp + usrMail.toStdString() + temp + ", " + temp + usrPwd.toStdString() + temp + "," + temp + usrAddr.toStdString() + temp + "," + temp + "NULL" + temp + ")";
   
   if (!mysql_real_query(mysql, query.c_str(), (unsigned int)strlen(query.c_str())))
   {
@@ -257,6 +257,29 @@ bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QStrin
   else 
   {
     qDebug() << "Insert error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return false;
+  }
+}
+
+bool changeData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr)
+{
+  std::string temp = "\"";
+  QString query = QString("update base_info set user_name='%1', user_phone='%2', user_mail='%3',user_pwd='%4',user_home_addr='%5' where user_id='%6';").arg(usrName).arg(usrPhone).arg(usrMail).arg(usrMail).arg(usrAddr).arg(usrId);
+
+  if (!mysql_real_query(mysql, query.toStdString().c_str(), (unsigned int)strlen(query.toStdString().c_str())))
+  {
+    qDebug() << "update success" << (unsigned long)mysql_affected_rows(mysql);
+
+    mysql_close(mysql);
+
+    return true;
+  }
+  else
+  {
+    qDebug() << "update error " << mysql_errno(mysql) << mysql_error(mysql);
 
     mysql_close(mysql);
 

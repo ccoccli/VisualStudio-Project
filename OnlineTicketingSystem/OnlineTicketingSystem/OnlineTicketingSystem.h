@@ -129,4 +129,10 @@ private slots:
   * \return null
   */
   void on_pushButton_14_clicked();
+  /*
+* \brief modify information func
+* \param null
+* \return null
+*/
+  void on_pushButton_15_clicked();
 };
