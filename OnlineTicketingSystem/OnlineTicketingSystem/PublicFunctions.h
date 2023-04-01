@@ -20,6 +20,7 @@ static QJsonObject mainObj = QJsonObject();
 static QJsonObject qWriteJsonObj = QJsonObject();
 static QJsonArray array;
 
+static bool       isLogin;
 typedef struct usrInfo
 {
   int     usrId;

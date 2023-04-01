@@ -2,13 +2,14 @@
 
 #include <regex>
 #include <QMessageBox>
+#include <QPaintEvent>
 #include <QtWidgets/QMainWindow>
 #include "ui_OnlineTicketingSystem.h"
 #include "PublicFunctions.h"
 #include <QPropertyAnimation>
 
 static usrInfo userData;
-
+static QString usrId;
 class OnlineTicketingSystem : public QMainWindow
 {
   Q_OBJECT
@@ -39,6 +40,8 @@ public:
 
 private:
   Ui::OnlineTicketingSystemClass ui;
+
+  void paintEvent(QPaintEvent* event);
 
 private slots:
 

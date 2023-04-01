@@ -2,6 +2,9 @@
 
 OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(parent)
 {
+  isLogin = false;
+  usrId = 0;
+
   ui.setupUi(this);
 
   interfaceInit();
@@ -27,6 +30,18 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.pushButton_14->hide();
   ui.usrIdlineEdit->hide();
   ui.usrId->hide();
+
+  ui.info1->hide();
+  ui.info2->hide();
+  ui.info3->hide();
+  ui.info4->hide();
+  ui.info5->hide();
+  ui.info6->hide();
+  ui.info7->hide();
+  ui.info8->hide();
+  ui.info9->hide();
+  ui.info10->hide();
+  ui.info11->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -34,6 +49,14 @@ OnlineTicketingSystem::~OnlineTicketingSystem()
 
 }
 
+void OnlineTicketingSystem::paintEvent(QPaintEvent* event)
+{
+  if (isLogin)
+  {
+    QString tittle = QString("Tule welcome : username->" + userData.usrName + " userID->" + usrId);
+    this->setWindowTitle(tittle);
+  }
+}
 void OnlineTicketingSystem::interfaceInit()
 {
   /*menu tittle*/
@@ -181,9 +204,55 @@ void OnlineTicketingSystem::showUi()
 
 void OnlineTicketingSystem::on_pushButton_clicked()
 {
-  hideUi();
+  ui.label->hide();
+  ui.label_2->hide();
+  ui.label_3->hide();
+  ui.label_4->hide();
+  ui.label_5->hide();
+  ui.label_6->hide();
+  ui.label_7->hide();
+  ui.label_8->hide();
+  ui.label_9->hide();
+  ui.label_10->hide();
 
-  writeUserDataJsonFile(1, "1", "1", "1", "1", "1");
+  ui.pushButton_12->show();
+
+  ui.pushButton->setGeometry(150, 10, 100, 100);
+  ui.pushButton_2->setGeometry(150, 135, 100, 100);
+  ui.pushButton_3->setGeometry(150, 260, 100, 100);
+  ui.pushButton_4->setGeometry(150, 385, 100, 100);
+  ui.pushButton_5->setGeometry(150, 510, 100, 100);
+  ui.pushButton_6->setGeometry(150, 635, 100, 100);
+
+  ui.pushButton_7->setGeometry(750, 10, 100, 100);
+  ui.pushButton_8->setGeometry(750, 135, 100, 100);
+  ui.pushButton_9->setGeometry(750, 260, 100, 100);
+  ui.pushButton_10->setGeometry(750, 385, 100, 100);
+  ui.pushButton_11->setGeometry(750, 510, 100, 100);
+
+  ui.pushButton->setEnabled(false);
+  ui.pushButton_2->setEnabled(false);
+  ui.pushButton_3->setEnabled(false);
+  ui.pushButton_4->setEnabled(false);
+  ui.pushButton_5->setEnabled(false);
+  ui.pushButton_6->setEnabled(false);
+  ui.pushButton_7->setEnabled(false);
+  ui.pushButton_8->setEnabled(false);
+  ui.pushButton_9->setEnabled(false);
+  ui.pushButton_10->setEnabled(false);
+  ui.pushButton_11->setEnabled(false);
+
+  ui.info1->show();
+  ui.info2->show();
+  ui.info3->show();
+  ui.info4->show();
+  ui.info5->show();
+  ui.info6->show();
+  ui.info7->show();
+  ui.info8->show();
+  ui.info9->show();
+  ui.info10->show();
+  ui.info11->show();
 }
 
 void OnlineTicketingSystem::on_pushButton_2_clicked()
@@ -262,6 +331,43 @@ void OnlineTicketingSystem::on_pushButton_11_clicked()
 void OnlineTicketingSystem::on_pushButton_12_clicked()
 {
   showUi();
+
+  ui.pushButton->setEnabled(true);
+  ui.pushButton_2->setEnabled(true);
+  ui.pushButton_3->setEnabled(true);
+  ui.pushButton_4->setEnabled(true);
+  ui.pushButton_5->setEnabled(true);
+  ui.pushButton_6->setEnabled(true);
+  ui.pushButton_7->setEnabled(true);
+  ui.pushButton_8->setEnabled(true);
+  ui.pushButton_9->setEnabled(true);
+  ui.pushButton_10->setEnabled(true);
+  ui.pushButton_11->setEnabled(true);
+
+  ui.pushButton->setGeometry(260, 130, 100, 100);
+  ui.pushButton_2->setGeometry(220, 340, 100, 100);
+  ui.pushButton_3->setGeometry(340, 570, 100, 100);
+  ui.pushButton_4->setGeometry(860, 570, 100, 100);
+  ui.pushButton_5->setGeometry(940, 340, 100, 100);
+  ui.pushButton_6->setGeometry(920, 140, 100, 100);
+
+  ui.pushButton_7->setGeometry(710, 20, 100, 100);
+  ui.pushButton_8->setGeometry(430, 20, 100, 100);
+  ui.pushButton_9->setGeometry(90, 210, 100, 100);
+  ui.pushButton_10->setGeometry(10, 400, 100, 100);
+  ui.pushButton_11->setGeometry(90, 560, 100, 100);
+
+  ui.info1->hide();
+  ui.info2->hide();
+  ui.info3->hide();
+  ui.info4->hide();
+  ui.info5->hide();
+  ui.info6->hide();
+  ui.info7->hide();
+  ui.info8->hide();
+  ui.info9->hide();
+  ui.info10->hide();
+  ui.info11->hide();
 }
 /*sign up interface ok btn*/
 void OnlineTicketingSystem::on_pushButton_13_clicked()
@@ -371,6 +477,10 @@ void OnlineTicketingSystem::on_pushButton_14_clicked()
         if (userData.usrName == ui.namelineEdit->text() && userData.usrPwd == ui.pwdlineEdit->text())
         {
           QMessageBox::information(this, "login success", "login success");
+
+          isLogin = true;
+
+          usrId = ui.usrIdlineEdit->text();
 
           showUi();
         }
