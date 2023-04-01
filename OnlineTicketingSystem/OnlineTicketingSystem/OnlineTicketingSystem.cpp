@@ -48,12 +48,18 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.pushButton_15->hide();
 
   ui.stars->hide();
-  ui.coupon->hide();
+ 
   ui.setting->hide();
   ui.tools->hide();
   ui.route->hide();
   ui.funds->hide();
   ui.pb->hide();
+
+  /*coupon*/
+  ui.coupon->hide();
+  ui.content_coupon->hide();
+  ui.content_coupon_lineEdit->hide();
+  ui.pushButton_16->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -69,6 +75,7 @@ void OnlineTicketingSystem::paintEvent(QPaintEvent* event)
     this->setWindowTitle(tittle);
   }
 }
+
 void OnlineTicketingSystem::interfaceInit()
 {
   /*menu tittle*/
@@ -109,7 +116,9 @@ void OnlineTicketingSystem::interfaceInit()
 
   /*coupon*/
   ui.coupon->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_coupon.png").scaled(ui.coupon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-
+  ui.content_coupon->setPixmap(QPixmap(":/OnlineTicketingSystem/res/contentCoupon.png").scaled(ui.content_coupon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.pushButton_16->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
+  ui.pushButton_16->setIconSize(ui.pushButton_16->size());
   /*setting*/
   ui.setting->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_setting.png").scaled(ui.setting->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 
@@ -239,6 +248,12 @@ void OnlineTicketingSystem::showUi()
   ui.modifyInfo->hide();
 
   ui.pushButton_15->hide();
+
+  /*coupon*/
+  ui.coupon->hide();
+  ui.content_coupon->hide();
+  ui.content_coupon_lineEdit->hide();
+  ui.pushButton_16->hide();
 }
 
 void OnlineTicketingSystem::on_pushButton_clicked()
@@ -296,9 +311,20 @@ void OnlineTicketingSystem::on_pushButton_clicked()
 
 void OnlineTicketingSystem::on_pushButton_2_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.coupon->show();
+    ui.coupon->show();
+
+    ui.content_coupon->show();
+    ui.content_coupon_lineEdit->show();
+    ui.pushButton_16->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before get the coupon !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_3_clicked()
@@ -403,6 +429,7 @@ void OnlineTicketingSystem::on_pushButton_11_clicked()
     QMessageBox::information(this, "erorr", "Please log in to your account before modifying your information");
   }
 }
+
 /*reback btn*/
 void OnlineTicketingSystem::on_pushButton_12_clicked()
 {
@@ -453,14 +480,24 @@ void OnlineTicketingSystem::on_pushButton_12_clicked()
   }
 
   ui.stars->hide();
+
   ui.coupon->hide();
+  ui.content_coupon->hide();
+  ui.content_coupon_lineEdit->hide();
+  ui.content_coupon_lineEdit->clear();
+  ui.pushButton_16->hide();
+
   ui.setting->hide();
+
   ui.tools->hide();
   
   ui.route->hide();
+
   ui.funds->hide();
+
   ui.pb->hide();
 }
+
 /*sign up interface ok btn*/
 void OnlineTicketingSystem::on_pushButton_13_clicked()
 {
@@ -688,5 +725,48 @@ void OnlineTicketingSystem::on_pushButton_15_clicked()
   else
   {
     QMessageBox::information(this, "modify fail", "User name cannot be empty!");
+  }
+}
+
+void OnlineTicketingSystem::on_pushButton_16_clicked()
+{
+  if (ui.content_coupon_lineEdit->text() != "")
+  {
+    MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "coupon");
+
+    couponData =  getCoupon(mysql, ui.content_coupon_lineEdit->text());
+
+    if (couponData.isUsing != "FALSE")
+    {
+      if (couponData.couponCode != "")
+      {
+        MYSQL* mysql1 = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "coupon");
+        if (changeCouponData(mysql1, QString("FALSE"), usrId, couponData.couponCode))
+        {
+          QMessageBox::information(this, "coupon success", "Successfully received, the coupon has been saved to your account, and the discount amount is $30.00");
+
+          showUi();
+
+          ui.content_coupon_lineEdit->clear();
+        }
+        else
+        {
+          QMessageBox::information(this, "coupon erorr", "Failed to claim");
+        }
+      }
+      else
+      {
+        QMessageBox::information(this, "coupon erorr", " This coupon code does not exist, please re - enter");
+       
+      }
+    }
+    else
+    {
+      QMessageBox::information(this, "coupon erorr", "This coupon has already been used, please try again");
+    }
+  }
+  else
+  {
+    QMessageBox::information(this, "coupon erorr", "coupon code can't be null, please try again!");
   }
 }

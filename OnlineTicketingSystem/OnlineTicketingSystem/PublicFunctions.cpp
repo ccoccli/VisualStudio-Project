@@ -286,3 +286,57 @@ bool changeData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QStrin
     return false;
   }
 }
+
+couponInfo getCoupon(MYSQL* mysql, QString code)
+{
+  couponInfo temp;
+  QString query = QString("select No,code,price,isUse from info where code='%1';").arg(code);
+
+  if (!mysql_real_query(mysql, query.toStdString().c_str(), (unsigned int)strlen(query.toStdString().c_str())))
+  {
+    MYSQL_ROW row;
+    MYSQL_RES* result = mysql_store_result(mysql);
+
+    while (row = mysql_fetch_row(result))
+    {
+      temp.couponId = atoi(row[0]);
+      temp.couponCode = row[1];
+      temp.couponPirce = std::stold(row[2]);
+      temp.isUsing = row[3];
+    }
+
+    mysql_close(mysql);
+
+    return temp;
+  }
+  else
+  {
+    qDebug() << "select error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return temp;
+  }
+}
+
+bool changeCouponData(MYSQL* mysql, QString isUsing, QString usrId, QString code)
+{
+  QString query = QString("update info set isUse='%1',for_usrID='%2' where code='%3';").arg(isUsing).arg(usrId).arg(code);
+
+  if (!mysql_real_query(mysql, query.toStdString().c_str(), (unsigned int)strlen(query.toStdString().c_str())))
+  {
+    qDebug() << "update success" << (unsigned long)mysql_affected_rows(mysql);
+
+    mysql_close(mysql);
+
+    return true;
+  }
+  else
+  {
+    qDebug() << "update error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return false;
+  }
+}

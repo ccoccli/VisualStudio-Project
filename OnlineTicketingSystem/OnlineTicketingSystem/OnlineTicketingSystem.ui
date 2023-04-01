@@ -311,6 +311,31 @@
 	border : 1px solid white;
 	border-radius : 10px;
 	background : transparent;
+}
+
+#content_coupon_lineEdit
+{
+	border : 1px solid white;
+	border-radius : 10px;
+	background : transparent;
+}
+
+#pushButton_16
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background : transparent;
+}
+#pushButton_16:hover
+{
+	border : 1px solid white;
+	border-radius : 20px;
+}
+#pushButton_16:pressed
+{
+	border : 1px solid white;
+	border-radius : 20px;
+	background:gray;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -1077,6 +1102,50 @@
       <y>0</y>
       <width>461</width>
       <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="content_coupon">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>150</y>
+      <width>1000</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="content_coupon_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>350</y>
+      <width>1000</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_16">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>650</y>
+      <width>241</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">

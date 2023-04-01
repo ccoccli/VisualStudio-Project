@@ -9,6 +9,7 @@
 #include <QPropertyAnimation>
 
 static usrInfo userData;
+static couponInfo couponData;
 static QString usrId;
 class OnlineTicketingSystem : public QMainWindow
 {
@@ -129,10 +130,16 @@ private slots:
   * \return null
   */
   void on_pushButton_14_clicked();
-  /*
+/*
 * \brief modify information func
 * \param null
 * \return null
 */
   void on_pushButton_15_clicked();
+  /*
+  * \brief coupon func
+  * \param null
+  * \return null
+  */
+  void on_pushButton_16_clicked();
 };

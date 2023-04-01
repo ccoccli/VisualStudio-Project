@@ -35,5 +35,6 @@
         <file>res/tittle_signin.png</file>
         <file>res/usrId.png</file>
         <file>res/modifyInfo.png</file>
+        <file>res/contentCoupon.png</file>
     </qresource>
 </RCC>

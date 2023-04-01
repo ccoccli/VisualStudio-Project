@@ -31,6 +31,15 @@ typedef struct usrInfo
   QString usrAddr;
 };
 
+typedef struct couponInfo
+{
+  int couponId;
+  QString couponCode;
+  double couponPirce;
+  QString isUsing;
+  int     usrId;
+};
+
 static MYSQL_RES* m_SelectResult;
 /*
  * \brief read json data
@@ -110,3 +119,16 @@ bool insertData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QStrin
  * \return usrInfo : userinfo
  */
 bool changeData(MYSQL* mysql, int usrId, QString usrName, QString usrPwd, QString usrPhone, QString usrMail, QString usrAddr);
+/*
+ * \brief change user data to database
+ * \param code     : coupon code
+ * \return usrInfo : couponInfo
+ */
+couponInfo getCoupon(MYSQL* mysql, QString code);
+/*
+ * \brief change user data to database
+ * \param isUsing     : isUsing
+ * \param usrId : usrId
+ * return success or fail
+ */
+bool changeCouponData(MYSQL* mysql, QString isUsing, QString usrId, QString code);
