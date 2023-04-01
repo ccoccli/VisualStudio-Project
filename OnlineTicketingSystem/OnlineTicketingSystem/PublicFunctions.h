@@ -129,6 +129,6 @@ couponInfo getCoupon(MYSQL* mysql, QString code);
  * \brief change user data to database
  * \param isUsing     : isUsing
  * \param usrId : usrId
- * return success or fail
+ * \return success or fail
  */
 bool changeCouponData(MYSQL* mysql, QString isUsing, QString usrId, QString code);

@@ -155,6 +155,7 @@ bool writeXmlFile(int usrId, QString usrName, QString usrPwd, QString usrPhone, 
 
   return true;
 }
+
 usrInfo readXmlFile()
 {
   usrInfo tempData;

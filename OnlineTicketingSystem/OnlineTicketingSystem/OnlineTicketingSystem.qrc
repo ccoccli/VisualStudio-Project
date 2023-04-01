@@ -36,5 +36,7 @@
         <file>res/usrId.png</file>
         <file>res/modifyInfo.png</file>
         <file>res/contentCoupon.png</file>
+        <file>res/tips.png</file>
+        <file>res/author.png</file>
     </qresource>
 </RCC>

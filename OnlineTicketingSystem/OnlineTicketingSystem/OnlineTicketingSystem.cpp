@@ -60,6 +60,8 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.content_coupon->hide();
   ui.content_coupon_lineEdit->hide();
   ui.pushButton_16->hide();
+
+  ui.nothingTips->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -132,6 +134,7 @@ void OnlineTicketingSystem::interfaceInit()
   ui.pb->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_Piggybank.png").scaled(ui.pb->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   /*set windows icon*/
   this->setWindowIcon(QIcon(":/OnlineTicketingSystem/res/icon.png"));
+  ui.author->setPixmap(QPixmap(":/OnlineTicketingSystem/res/author.png").scaled(ui.author->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   /*menu icon*/
   ui.pushButton->setIcon(QIcon(":/OnlineTicketingSystem/res/Operation tips.png"));
   ui.pushButton->setIconSize(ui.pushButton->size());
@@ -159,6 +162,8 @@ void OnlineTicketingSystem::interfaceInit()
 
   ui.pushButton_12->setIcon(QIcon(":/OnlineTicketingSystem/res/caret-left.png"));
   ui.pushButton_12->setIconSize(ui.pushButton_12->size());
+
+  ui.nothingTips->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tips.png").scaled(ui.nothingTips->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 void OnlineTicketingSystem::hideUi()
@@ -329,45 +334,90 @@ void OnlineTicketingSystem::on_pushButton_2_clicked()
 
 void OnlineTicketingSystem::on_pushButton_3_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.setting->show();
+    ui.setting->show();
+
+    ui.nothingTips->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before inter setting !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_4_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.stars->show();
+    ui.stars->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before appraise our service !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_5_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.tools->show();
+    ui.tools->show();
+
+    ui.nothingTips->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before inter tools !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_6_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.pb->show();
+    ui.pb->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before inter piggy bank !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_7_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.funds->show();
-
+    ui.funds->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before inter funds !");
+  }
 }
 
 void OnlineTicketingSystem::on_pushButton_8_clicked()
 {
-  hideUi();
+  if (isLogin)
+  {
+    hideUi();
 
-  ui.route->show();
+    ui.route->show();
+  }
+  else
+  {
+    QMessageBox::information(this, "erorr", "Please log in to your account before inter route !");
+  }
 }
 
 /*main menu sign up btn*/
@@ -496,6 +546,8 @@ void OnlineTicketingSystem::on_pushButton_12_clicked()
   ui.funds->hide();
 
   ui.pb->hide();
+
+  ui.nothingTips->hide();
 }
 
 /*sign up interface ok btn*/
