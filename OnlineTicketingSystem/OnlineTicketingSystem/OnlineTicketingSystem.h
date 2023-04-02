@@ -7,6 +7,9 @@
 #include "ui_OnlineTicketingSystem.h"
 #include "PublicFunctions.h"
 #include <QPropertyAnimation>
+#include <QButtonGroup>
+#include <QList>
+#include <QAbstractButton>
 
 static usrInfo userData;
 static couponInfo couponData;
@@ -43,6 +46,10 @@ private:
   Ui::OnlineTicketingSystemClass ui;
 
   void paintEvent(QPaintEvent* event);
+
+  QButtonGroup* pButtonGroup1 = new QButtonGroup();
+  QButtonGroup* pButtonGroup2 = new QButtonGroup();
+  QButtonGroup* pButtonGroup3 = new QButtonGroup();
 
 private slots:
 
@@ -142,4 +149,10 @@ private slots:
   * \return null
   */
   void on_pushButton_16_clicked();
+  /*
+  * \brief stars func
+  * \param null
+  * \return null
+  */
+  void on_pushButton_17_clicked();
 };

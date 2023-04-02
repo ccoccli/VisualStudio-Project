@@ -47,8 +47,12 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.modifyInfo->hide();
   ui.pushButton_15->hide();
 
+  /*stars*/
   ui.stars->hide();
- 
+  ui.contentStarInfo1->hide();
+  ui.contentStarInfo2->hide();
+  ui.contentStarInfo3->hide();
+
   ui.setting->hide();
   ui.tools->hide();
   ui.route->hide();
@@ -62,6 +66,27 @@ OnlineTicketingSystem::OnlineTicketingSystem(QWidget* parent) : QMainWindow(pare
   ui.pushButton_16->hide();
 
   ui.nothingTips->hide();
+
+  ui.radioButton->hide();
+  ui.radioButton_2->hide();
+  ui.radioButton_3->hide();
+  ui.radioButton_4->hide();
+  ui.radioButton_5->hide();
+  ui.radioButton_6->hide();
+  ui.radioButton_7->hide();
+  ui.radioButton_8->hide();
+  ui.radioButton_9->hide();
+  ui.radioButton_10->hide();
+  ui.radioButton_11->hide();
+  ui.radioButton_12->hide();
+  ui.radioButton_13->hide();
+  ui.radioButton_14->hide();
+  ui.radioButton_15->hide();
+  ui.radioButton_16->hide();
+  ui.radioButton_17->hide();
+  ui.radioButton_18->hide();
+
+  ui.pushButton_17->hide();
 }
 
 OnlineTicketingSystem::~OnlineTicketingSystem()
@@ -115,7 +140,49 @@ void OnlineTicketingSystem::interfaceInit()
 
   /*stars*/
   ui.stars->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_stars.png").scaled(ui.stars->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.contentStarInfo1->setPixmap(QPixmap(":/OnlineTicketingSystem/res/contentStar1.png").scaled(ui.contentStarInfo1->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.contentStarInfo2->setPixmap(QPixmap(":/OnlineTicketingSystem/res/contentStar2.png").scaled(ui.contentStarInfo2->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.contentStarInfo3->setPixmap(QPixmap(":/OnlineTicketingSystem/res/contentStar3.png").scaled(ui.contentStarInfo3->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+  ui.radioButton->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton->setIconSize(ui.radioButton->size());
+  ui.radioButton_2->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_2->setIconSize(ui.radioButton->size());
+  ui.radioButton_3->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_3->setIconSize(ui.radioButton->size());
+  ui.radioButton_4->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_4->setIconSize(ui.radioButton->size());
+  ui.radioButton_5->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_5->setIconSize(ui.radioButton->size());
+  ui.radioButton_6->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_6->setIconSize(ui.radioButton->size());
+  ui.radioButton_7->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_7->setIconSize(ui.radioButton->size());
+  ui.radioButton_8->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_8->setIconSize(ui.radioButton->size());
+  ui.radioButton_9->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_9->setIconSize(ui.radioButton->size());
+  ui.radioButton_10->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_10->setIconSize(ui.radioButton->size());
+  ui.radioButton_11->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_11->setIconSize(ui.radioButton->size());
+  ui.radioButton_12->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_12->setIconSize(ui.radioButton->size());
+  ui.radioButton_13->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_13->setIconSize(ui.radioButton->size());
+  ui.radioButton_14->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_14->setIconSize(ui.radioButton->size());
+  ui.radioButton_15->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_15->setIconSize(ui.radioButton->size());
+  ui.radioButton_16->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_16->setIconSize(ui.radioButton->size());
+  ui.radioButton_17->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_17->setIconSize(ui.radioButton->size());
+  ui.radioButton_18->setIcon(QIcon(":/OnlineTicketingSystem/res/star.png"));
+  ui.radioButton_18->setIconSize(ui.radioButton->size());
 
+  ui.pushButton_17->setIcon(QIcon(":/OnlineTicketingSystem/res/btn_ok.png"));
+  ui.pushButton_17->setIconSize(ui.pushButton_17->size());
+  
   /*coupon*/
   ui.coupon->setPixmap(QPixmap(":/OnlineTicketingSystem/res/tittle_coupon.png").scaled(ui.coupon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   ui.content_coupon->setPixmap(QPixmap(":/OnlineTicketingSystem/res/contentCoupon.png").scaled(ui.content_coupon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
@@ -259,6 +326,32 @@ void OnlineTicketingSystem::showUi()
   ui.content_coupon->hide();
   ui.content_coupon_lineEdit->hide();
   ui.pushButton_16->hide();
+
+  /*stars*/
+  ui.contentStarInfo1->hide();
+  ui.contentStarInfo2->hide();
+  ui.contentStarInfo3->hide();
+
+  ui.radioButton->hide();
+  ui.radioButton_2->hide();
+  ui.radioButton_3->hide();
+  ui.radioButton_4->hide();
+  ui.radioButton_5->hide();
+  ui.radioButton_6->hide();
+  ui.radioButton_7->hide();
+  ui.radioButton_8->hide();
+  ui.radioButton_9->hide();
+  ui.radioButton_10->hide();
+  ui.radioButton_11->hide();
+  ui.radioButton_12->hide();
+  ui.radioButton_13->hide();
+  ui.radioButton_14->hide();
+  ui.radioButton_15->hide();
+  ui.radioButton_16->hide();
+  ui.radioButton_17->hide();
+  ui.radioButton_18->hide();
+
+  ui.pushButton_17->hide();
 }
 
 void OnlineTicketingSystem::on_pushButton_clicked()
@@ -355,6 +448,56 @@ void OnlineTicketingSystem::on_pushButton_4_clicked()
     hideUi();
 
     ui.stars->show();
+
+    ui.contentStarInfo1->show();
+    ui.contentStarInfo2->show();
+    ui.contentStarInfo3->show();
+
+    ui.radioButton->show();
+    ui.radioButton_2->show();
+    ui.radioButton_3->show();
+    ui.radioButton_4->show();
+    ui.radioButton_5->show();
+    ui.radioButton_6->show();
+    ui.radioButton_7->show();
+    ui.radioButton_8->show();
+    ui.radioButton_9->show();
+    ui.radioButton_10->show();
+    ui.radioButton_11->show();
+    ui.radioButton_12->show();
+    ui.radioButton_13->show();
+    ui.radioButton_14->show();
+    ui.radioButton_15->show();
+    ui.radioButton_16->show();
+    ui.radioButton_17->show();
+    ui.radioButton_18->show();
+
+    ui.pushButton_17->show();
+
+    pButtonGroup1->setExclusive(true);
+    pButtonGroup2->setExclusive(true);
+    pButtonGroup3->setExclusive(true);
+
+    pButtonGroup1->addButton(ui.radioButton, 0);
+    pButtonGroup1->addButton(ui.radioButton_2, 1);
+    pButtonGroup1->addButton(ui.radioButton_3, 2);
+    pButtonGroup1->addButton(ui.radioButton_4, 3);
+    pButtonGroup1->addButton(ui.radioButton_5, 4);
+    pButtonGroup1->addButton(ui.radioButton_6, 5);
+
+    pButtonGroup2->addButton(ui.radioButton_7, 0);
+    pButtonGroup2->addButton(ui.radioButton_8, 1);
+    pButtonGroup2->addButton(ui.radioButton_9, 2);
+    pButtonGroup2->addButton(ui.radioButton_10, 3);
+    pButtonGroup2->addButton(ui.radioButton_11, 4);
+    pButtonGroup2->addButton(ui.radioButton_12, 5);
+
+    pButtonGroup3->addButton(ui.radioButton_13, 0);
+    pButtonGroup3->addButton(ui.radioButton_14, 1);
+    pButtonGroup3->addButton(ui.radioButton_15, 2);
+    pButtonGroup3->addButton(ui.radioButton_16, 3);
+    pButtonGroup3->addButton(ui.radioButton_17, 4);
+    pButtonGroup3->addButton(ui.radioButton_18, 5);
   }
   else
   {
@@ -548,6 +691,31 @@ void OnlineTicketingSystem::on_pushButton_12_clicked()
   ui.pb->hide();
 
   ui.nothingTips->hide();
+
+  ui.contentStarInfo1->hide();
+  ui.contentStarInfo2->hide();
+  ui.contentStarInfo3->hide();
+
+  ui.radioButton->hide();
+  ui.radioButton_2->hide();
+  ui.radioButton_3->hide();
+  ui.radioButton_4->hide();
+  ui.radioButton_5->hide();
+  ui.radioButton_6->hide();
+  ui.radioButton_7->hide();
+  ui.radioButton_8->hide();
+  ui.radioButton_9->hide();
+  ui.radioButton_10->hide();
+  ui.radioButton_11->hide();
+  ui.radioButton_12->hide();
+  ui.radioButton_13->hide();
+  ui.radioButton_14->hide();
+  ui.radioButton_15->hide();
+  ui.radioButton_16->hide();
+  ui.radioButton_17->hide();
+  ui.radioButton_18->hide();
+
+  ui.pushButton_17->hide();
 }
 
 /*sign up interface ok btn*/
@@ -820,5 +988,53 @@ void OnlineTicketingSystem::on_pushButton_16_clicked()
   else
   {
     QMessageBox::information(this, "coupon erorr", "coupon code can't be null, please try again!");
+  }
+}
+
+void OnlineTicketingSystem::on_pushButton_17_clicked()
+{
+  /*create rand no*/
+  srand((unsigned)time(NULL));
+
+  int score = pButtonGroup1->checkedId() * 10 + pButtonGroup2->checkedId() * 10 + pButtonGroup3->checkedId() * 10;
+
+  MYSQL* mysql = connMySQLDataBase("114.116.20.45", "root", "Wan23004517.", 3306, "stars");
+
+  if (((pButtonGroup1->checkedId() == 0) || (pButtonGroup1->checkedId() == 1) || (pButtonGroup1->checkedId() == 2)  ||
+       (pButtonGroup1->checkedId() == 3) || (pButtonGroup1->checkedId() == 4) || (pButtonGroup1->checkedId() == 5)) &&
+      ((pButtonGroup2->checkedId() == 0) || (pButtonGroup2->checkedId() == 1) || (pButtonGroup2->checkedId() == 2)  ||
+       (pButtonGroup2->checkedId() == 3) || (pButtonGroup2->checkedId() == 4) || (pButtonGroup2->checkedId() == 5)) &&
+      ((pButtonGroup3->checkedId() == 0) || (pButtonGroup3->checkedId() == 1) || (pButtonGroup3->checkedId() == 2)  ||
+       (pButtonGroup3->checkedId() == 3) || (pButtonGroup3->checkedId() == 4) || (pButtonGroup3->checkedId() == 5)))
+  {
+    if (insertStarsData(mysql, usrId, score, 0 + rand() % 99999999))
+    {
+      QMessageBox::information(this, "stars success", "Thank you for your feedback, I will work harder to improve");
+      showUi();
+
+      for (int i = 0; i < 6; i++)
+      {
+        pButtonGroup1->setExclusive(false);
+        pButtonGroup1->button(i)->setChecked(false);
+        pButtonGroup1->setExclusive(true);
+
+        pButtonGroup2->setExclusive(false);
+        pButtonGroup2->button(i)->setChecked(false);
+        pButtonGroup2->setExclusive(true);
+
+        pButtonGroup3->setExclusive(false);
+        pButtonGroup3->button(i)->setChecked(false);
+        pButtonGroup3->setExclusive(true);
+      }
+
+    }
+    else
+    {
+      QMessageBox::information(this, "stars erorr", "commit fail");
+    }
+  }
+  else
+  {
+    QMessageBox::information(this, "stars erorr", "There are unselected items. Please complete the options");
   }
 }

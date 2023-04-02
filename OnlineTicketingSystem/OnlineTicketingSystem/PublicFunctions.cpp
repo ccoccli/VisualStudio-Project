@@ -341,3 +341,25 @@ bool changeCouponData(MYSQL* mysql, QString isUsing, QString usrId, QString code
     return false;
   }
 }
+
+bool insertStarsData(MYSQL* mysql, QString usrId, int score, int No)
+{
+  QString query = QString("insert into stars (No,for_usrID,score) values ('%1', '%2', '%3');").arg(No).arg(usrId).arg(score);
+
+  if (!mysql_real_query(mysql, query.toStdString().c_str(), (unsigned int)strlen(query.toStdString().c_str())))
+  {
+    qDebug() << "Inserted rows" << (unsigned long)mysql_affected_rows(mysql);
+
+    mysql_close(mysql);
+
+    return true;
+  }
+  else
+  {
+    qDebug() << "Insert error " << mysql_errno(mysql) << mysql_error(mysql);
+
+    mysql_close(mysql);
+
+    return false;
+  }
+}

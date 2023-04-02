@@ -132,3 +132,5 @@ couponInfo getCoupon(MYSQL* mysql, QString code);
  * \return success or fail
  */
 bool changeCouponData(MYSQL* mysql, QString isUsing, QString usrId, QString code);
+
+bool insertStarsData(MYSQL* mysql, QString usrId, int score, int No);
