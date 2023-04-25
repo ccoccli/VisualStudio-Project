@@ -6,7 +6,7 @@
 cv DebugTest();
 #endif
 
-#define SLLTEST
-#ifdef SLLTEST
-cv SignedLinkedListTest();
+#define BASESTRTEST
+#ifdef BASESTRTEST
+cv BaseStringTest();
 #endif

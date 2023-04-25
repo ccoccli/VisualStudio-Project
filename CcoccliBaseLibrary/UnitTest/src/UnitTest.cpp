@@ -6,8 +6,8 @@ ci main()
   DebugTest();
 #endif
 
-#ifdef SLLTEST
-  SignedLinkedListTest();
+#ifdef BASESTRTEST
+  BaseStringTest();
 #endif
 }
 
@@ -20,19 +20,17 @@ cv DebugTest()
 }
 #endif
 
-#define SLLTEST
-#ifdef SLLTEST
-cv SignedLinkedListTest()
+#define BASESTRTEST
+#ifdef BASESTRTEST
+cv BaseStringTest()
 {
-  LinkList<ci> lis;
+  cc str1[] = "Hello world !";
+  cc str2[20];
 
-  lis.Init_linklist();
-  lis.Insert_linklist(0, 1);
+  BaseString::co_memcpy(str2, str1, sizeof(str1));
 
-  ci pos = lis.find_linklist(1);
-
-  std::cout << pos << std::endl;
-
+  LIB_DEBUG("str1 is %s\n", str1);
+  LIB_DEBUG("str2 is %s\n", str2);
   system("pause");
 }
 #endif

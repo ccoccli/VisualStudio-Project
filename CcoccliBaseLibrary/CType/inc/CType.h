@@ -5,9 +5,12 @@
 #include <iostream>
 #include <string>
 #include <cstdarg>
+#include <stdlib.h>
 
 #define MAX_PRINT_NUM          512
-#define MOD_NAME_LEN           32
+
+#define ctrue                  true
+#define cfalse                 false
 /*
  * short
  */
@@ -68,6 +71,14 @@ typedef float                  cf;
  */
 typedef bool                   cb;
 
+typedef size_t                 csize;
+
+typedef char*                   co_va_list;
+#define _CO_AUPBND              (sizeof (ci) - 1)
+#define _co_bnd(X, bnd)         (((sizeof (X)) + (bnd)) & (~(bnd)))
+#define co_va_start(ap, A) (cv) ((ap) = (co_va_list)(((cuc *) &(A)) + (_co_bnd (A,_CO_AUPBND))))
+#define co_va_end(ap)           (cv) 0
+
 typedef enum
 {
   MOD_USELESS,
@@ -99,64 +110,49 @@ cb CO_DEBUG(CO_MODULE mod, const cc* szFormat, ...);
 #else
 #define NORMAL_IM_EXPORT __declspec(dllimport)
 #endif //DLL_PROJECT
-template <typename T>
-class LinkNode
-{
-public:
-  T data;
-  LinkNode<T>* next;
-public:
-  LinkNode<T>() {}
-};
 
-template <typename T>
-class NORMAL_IM_EXPORT LinkList
+class NORMAL_IM_EXPORT BaseString
 {
 public:
-  LinkList();
-  LinkList(const LinkList<T>& linklist);
-  ~LinkList();
-public:
   /*
-   * \brief init linked list
-   * \param[in] null
-   * \return the linked list
+   * \brief Copy no more than count bytes from src to dest. Stop copying if the character ch is encountered. 
+   * \param[in] dst  --> Pointer to the destination.
+   * \param[in] src  --> Pointer to the source.
+   * \param[in] size --> Number of characters.
+   * \return If the character c is copied, _memccpy returns a pointer to the char in dest that immediately follows the character. If c is not copied, it returns NULL.
    */
-  LinkList* Init_linklist();
+  static cv* co_memcpy(cv* dst, const cv* src, csize size);
   /*
-   * \brief Insert input based on location
-   * \param[in] pos --> location
-   * \param[in] vaule --> what value do you need to insert
-   * \return void
+   * \brief Converts a string to integer data
    */
-  cv Insert_linklist(ci pos, T vaule);
+  static ci co_atoi(cc* nptr);
   /*
-   * \brief return the first node
-   * \param[in] null
-   * \return the first node
+   * \brief Initializes an array of characters to a value
    */
-  LinkNode<T>* first_node();
-  /*
-   * \brief Delete data based on location
-   * \param[in] pos --> location
-   * \return void
-   */
-  cv remove_by_pos(ci pos);
-  /*
-   * \brief Delete linked list
-   * \param[in] null
-   * \return void
-   */
-  cv Free_linklist();
-  /*
-   * \brief find position based on the value
-   * \param[in] value --> the value
-   * \return the position
-   */
-  ci find_linklist(T vaule);
-public:
-  ci size;
-  LinkNode<T>* Head;
-  LinkList* list;
+  static cv* co_memset(cv* s, ci ch, cui n);
+
+  static ci mp_memcmp(cv* buf1, cv* buf2, cui count);
+
+  static cv* mp_memmove(cv* dest, cv* src, cui count);
+
+  static cc* mp_strcpy(cc* dest, cc* src);
+
+  static cc* mp_strncpy(cc* dest, cc* src, cui count);
+
+  static ci mp_strncmp(const cc* s1, const cc* s2, ci count);
+
+  static ci mp_strcmp(const cc* s1, const cc* s2);
+
+  static cv mp_strcat(cc* to, cc* from);
+
+  static cc* mp_strstr(const cc* s1, const cc* s2);
+      
+  static cc* mp_strtok(cc* s, cc* delim);
+      
+  static ci mp_abs(ci j);
+      
+  static csize mp_strlen(cc* s);
+
+  static ci co_sprintf(cc* str, cc* format, ...);
 };
 #endif //_CO_GLOBAL_DEFINED_

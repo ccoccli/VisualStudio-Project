@@ -21,134 +21,100 @@ cb CO_DEBUG(CO_MODULE mod, const cc* szFormat, ...)
       break;
     }
 
-    va_start(ap, szFormat);
+    co_va_start(ap, szFormat);
     vsnprintf((char*)sBuffer, (MAX_PRINT_NUM), (char*)szFormat, ap);
-    va_end(ap);
+    co_va_end(ap);
 
-    printf("%s %s", name, sBuffer);
+    printf("\033[32m%s %s\033[0m", name, sBuffer);
     return true;
   }
   else
   {
-    va_start(ap, szFormat);
+    co_va_start(ap, szFormat);
     vsnprintf((char*)sBuffer, (MAX_PRINT_NUM), (char*)szFormat, ap);
-    va_end(ap);
+    co_va_end(ap);
 
     printf("%s", sBuffer);
-    return true;
+    return ctrue;
   }
-  return false;
+  return cfalse;
 }
 
-template<class T>
-LinkList<T>::LinkList()
+cv* BaseString::co_memcpy(cv* dst, const cv* src, csize size)
 {
-
+  return memcpy(dst, src, size);
 }
-template<class T>
-LinkList<T>::~LinkList()
+ci BaseString::co_atoi(cc* nptr)
 {
-
+  return atoi(nptr);
 }
-template <class T>
-LinkList<T>::LinkList(const LinkList<T>& linklist)
+cv* BaseString::co_memset(cv* s, ci ch, cui n)
 {
-  if (this->list != NULL)
-  {
-    this->Free_linklist();
-  }
-  LinkList<T> newlist = new LinkList<T>(this->size);
-
-  this->list = newlist;
-
-  memcpy(this->list, linklist, sizeof(linklist));
-
-  this->size = linklist.size;
-  this->Head = linklist.Head;
-
-  return *this;
+  return memset(s, ch, n);
 }
-template<class T>
-LinkList<T>* LinkList<T>::Init_linklist()
+ci BaseString::mp_memcmp(cv* buf1, cv* buf2, cui count)
 {
-  LinkList* list = new LinkList;
-
-  list->size = 0;
-
-  LinkNode<T>* head = new LinkNode<T>;
-  list->Head = head;
-  list->Head->next = NULL;
-  this->list = list;
-
-  return list;
+  return memcmp(buf1, buf2, count);
 }
-template<class T>
-void LinkList<T>::Insert_linklist(ci pos, T vaule)
+
+cv* BaseString::mp_memmove(cv* dest, cv* src, cui count)
 {
-  if (pos < 0 || pos > this->size)
-  {
-    pos = this->list->size;
-  }
-  LinkNode<T>* node = new LinkNode<T>;
-  node->data = vaule;
-  node->next = NULL;
-
-  LinkNode<T>* pCurrent = this->list->Head;
-  for (ci i = 0; i < pos; i++) {
-    pCurrent = pCurrent->next;
-  }
-
-  node->next = pCurrent->next;
-  pCurrent->next = node;
-  this->size += 1;
+  return memmove(dest, src, count);
 }
-template<class T>
-cv LinkList<T>::remove_by_pos(ci pos)
+
+cc* BaseString::mp_strcpy(cc* dest, cc* src)
 {
-  if (pos < 0 || pos >= this->size)
-    return;
-
-  LinkNode<T>* pcurrent = this->list->Head;
-
-  for (ci i = 0; i < pos; i++)
-    pcurrent = pcurrent->next;
-
-  LinkNode<T>* delnode = pcurrent->next;
-  pcurrent->next = delnode->next;
-  delete delnode;
-  this->size -= 1;
+  return strcpy(dest, src);
 }
-template<class T>
-ci LinkList<T>::find_linklist(T vaule) {
-  ci pos = -1;
-  LinkNode<T>* pcurrent = this->list->Head->next;
-  for (ci i = 0; i < this->size; i++)
-  {
-    if (pcurrent->data == vaule)
-    {
-      pos = i;
-      break;
-    }
-    pcurrent = pcurrent->next;
-  }
-  return pos;
-}
-template<class T>
-LinkNode<T>* LinkList<T>::first_node()
+
+cc* BaseString::mp_strncpy(cc* dest, cc* src, cui count)
 {
-  return this->list->Head->next;
+  return strncpy(dest, src, count);
 }
-template<class T>
-cv LinkList<T>::Free_linklist()
+
+ci BaseString::mp_strncmp(const cc* s1, const cc* s2, ci count)
 {
-  LinkNode<T>* pcurrent = this->list->Head;
-  while (pcurrent != NULL)
-  {
-    LinkNode<T>* pnext = pcurrent->next;
-    delete pcurrent;
-    pcurrent = pnext;
-  }
-  delete this->list;
-  this->list = nullptr;
-  this->size = 0;
+  return strncmp(s1, s2, count);
+}
+
+ci BaseString::mp_strcmp(const cc* s1, const cc* s2)
+{
+  return strcmp(s1, s2);
+}
+
+cv BaseString::mp_strcat(cc* to, cc* from)
+{
+  strcat(to, from);
+}
+
+cc* BaseString::mp_strstr(const cc* s1, const cc* s2)
+{
+  return (cc*)strstr(s1, s2);
+}
+cc* BaseString::mp_strtok(cc* s, cc* delim)
+{
+  return strtok(s, delim);
+}
+
+ci BaseString::mp_abs(ci j)
+{
+  if (j >= 0) return j;
+  else  return -j;
+}
+
+csize BaseString::mp_strlen(cc* s)
+{
+  return strlen(s);
+}
+ci BaseString::co_sprintf(cc* str, cc* format, ...)
+{
+  co_va_list arg;
+  int rv;
+  co_va_start(arg, format);
+  rv = vsnprintf(str, 128, format, arg);
+  co_va_end(arg);
+  return rv;
+
+  return 1;
+
 }
