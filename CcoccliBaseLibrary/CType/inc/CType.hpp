@@ -6,6 +6,9 @@
 #include <string>
 #include <cstdarg>
 #include <stdlib.h>
+#include <stdio.h>
+#include <io.h>
+#include <direct.h>
 
 #define MAX_PRINT_NUM          512
 
@@ -83,6 +86,7 @@ typedef char*                   co_va_list;
 #define cFail                   (-1)
 #define cError                  (1 )
 #define cTimout                 (50)
+
 typedef enum
 {
   MOD_USELESS,
