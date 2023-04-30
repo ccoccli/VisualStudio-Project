@@ -1,4 +1,4 @@
-#include "CType.h"
+#include "CType.hpp"
 
 cb CO_DEBUG(CO_MODULE mod, const cc* szFormat, ...)
 {
@@ -9,16 +9,24 @@ cb CO_DEBUG(CO_MODULE mod, const cc* szFormat, ...)
   {
     switch (mod)
     {
-    case MOD_LIB:
-      snprintf((char*)name, sizeof(name), "%s", "[CO_LIB]");
-      break;
-    case MOD_APP:
-      snprintf((char*)name, sizeof(name), "%s", "[CO_APP]");
-      break;
-    case MOD_USELESS:
-      break;
-    default:
-      break;
+      case MOD_LIB:
+      {
+        BaseString::co_snprintf((char*)name, sizeof(name), "%s", "[CO_LIB]");
+        break;
+      }
+      case MOD_APP:
+      {
+        BaseString::co_snprintf((char*)name, sizeof(name), "%s", "[CO_APP]");
+        break;
+      }
+      case MOD_USELESS:
+      {
+        break;
+      }
+      default:
+      {
+        break;
+      }
     }
 
     co_va_start(ap, szFormat);
@@ -96,12 +104,6 @@ cc* BaseString::mp_strtok(cc* s, cc* delim)
   return strtok(s, delim);
 }
 
-ci BaseString::mp_abs(ci j)
-{
-  if (j >= 0) return j;
-  else  return -j;
-}
-
 csize BaseString::mp_strlen(cc* s)
 {
   return strlen(s);
@@ -115,6 +117,9 @@ ci BaseString::co_sprintf(cc* str, cc* format, ...)
   co_va_end(arg);
   return rv;
 
-  return 1;
-
+  return cError;
+}
+ci BaseString::co_snprintf(cc* str, size_t size, const cc* format, ...)
+{
+  return snprintf(str, size, format);
 }

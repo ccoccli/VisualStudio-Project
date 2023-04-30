@@ -22,7 +22,7 @@
     <ClCompile Include="src\CType.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\CType.h" />
+    <ClInclude Include="inc\CType.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

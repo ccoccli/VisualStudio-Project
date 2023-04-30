@@ -563,7 +563,6 @@ void OnlineTicketingSystem::on_pushButton_8_clicked()
   }
 }
 
-/*main menu sign up btn*/
 void OnlineTicketingSystem::on_pushButton_9_clicked()
 {
   hideUi();
@@ -623,7 +622,6 @@ void OnlineTicketingSystem::on_pushButton_11_clicked()
   }
 }
 
-/*reback btn*/
 void OnlineTicketingSystem::on_pushButton_12_clicked()
 {
   showUi();
@@ -718,7 +716,6 @@ void OnlineTicketingSystem::on_pushButton_12_clicked()
   ui.pushButton_17->hide();
 }
 
-/*sign up interface ok btn*/
 void OnlineTicketingSystem::on_pushButton_13_clicked()
 {
   /*create rand user id*/

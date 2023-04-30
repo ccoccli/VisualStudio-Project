@@ -1,6 +1,6 @@
 #include "UnitTest.h"
 
-ci main()
+ci main(ci argc, cc* argv[])
 {
 #ifdef DEBUGTEST
   DebugTest();
@@ -9,14 +9,16 @@ ci main()
 #ifdef BASESTRTEST
   BaseStringTest();
 #endif
+
+  return cSuccess;
 }
 
 #ifdef DEBUGTEST
 cv DebugTest()
 {
   cc str[] = "!";
-  LIB_DEBUG("this is lib debug test %s\n", str);
-  APP_DEBUG("this is app debug test %s\n", str);
+  LIB_DEBUG("this is LIB debug test %s\n", str);
+  APP_DEBUG("this is APP debug test %s\n", str);
 }
 #endif
 

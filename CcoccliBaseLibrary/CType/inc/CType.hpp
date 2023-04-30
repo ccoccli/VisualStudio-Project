@@ -79,6 +79,10 @@ typedef char*                   co_va_list;
 #define co_va_start(ap, A) (cv) ((ap) = (co_va_list)(((cuc *) &(A)) + (_co_bnd (A,_CO_AUPBND))))
 #define co_va_end(ap)           (cv) 0
 
+#define cSuccess                (0 )
+#define cFail                   (-1)
+#define cError                  (1 )
+#define cTimout                 (50)
 typedef enum
 {
   MOD_USELESS,
@@ -148,11 +152,11 @@ public:
   static cc* mp_strstr(const cc* s1, const cc* s2);
       
   static cc* mp_strtok(cc* s, cc* delim);
-      
-  static ci mp_abs(ci j);
-      
+
   static csize mp_strlen(cc* s);
 
   static ci co_sprintf(cc* str, cc* format, ...);
+
+  static ci co_snprintf(cc* str, size_t size, const cc* format, ...);
 };
 #endif //_CO_GLOBAL_DEFINED_

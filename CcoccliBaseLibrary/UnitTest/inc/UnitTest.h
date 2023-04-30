@@ -1,12 +1,12 @@
 #pragma once
-#include "CType.h"
+#include "CType.hpp"
 
-//#define DEBUGTEST
+#define DEBUGTEST
 #ifdef DEBUGTEST
 cv DebugTest();
 #endif
 
-#define BASESTRTEST
+//#define BASESTRTEST
 #ifdef BASESTRTEST
 cv BaseStringTest();
 #endif
