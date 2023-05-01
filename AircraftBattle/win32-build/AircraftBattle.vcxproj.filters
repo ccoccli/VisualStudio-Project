@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\main.cpp">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\VisualStudio-Project\AircraftBattle\cocos2d\cocos\precheader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SysMenuScene.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\main.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\resource.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\Resources\fonts\Marker Felt.ttf">
+      <Filter>Resources\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\Resources\fonts\arial.ttf">
+      <Filter>Resources\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\Resources\res\.gitkeep">
+      <Filter>Resources\res</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SysMenuScene.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\VisualStudio-Project\AircraftBattle\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\game.rc">
+      <Filter>Source Files\proj.win32</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{A5357AC8-766F-3381-93B7-E5908D5DE570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\fonts">
+      <UniqueIdentifier>{4706259C-A2FC-360E-BC89-6E5DA60A43BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\res">
+      <UniqueIdentifier>{A427CC33-4053-3A10-BFCA-09F572D844E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A0C52CCD-81E3-3E8C-A3D8-E664A5A3CB18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes">
+      <UniqueIdentifier>{1006E3C5-4945-3A82-8029-373C2EB954F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\proj.win32">
+      <UniqueIdentifier>{6131EFBA-C035-3E92-BB6D-8A556900BA51}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\loading.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+    <Image Include="..\Resources\logo.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+    <Image Include="..\Resources\logoBack.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+    <Image Include="..\Resources\menu.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+    <Image Include="..\Resources\textureOpaquePack.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+    <Image Include="..\Resources\textureTransparentPack.png">
+      <Filter>Resources\res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\textureOpaquePack.plist">
+      <Filter>Resources\res</Filter>
+    </None>
+    <None Include="..\Resources\textureTransparentPack.plist">
+      <Filter>Resources\res</Filter>
+    </None>
+  </ItemGroup>
+</Project>

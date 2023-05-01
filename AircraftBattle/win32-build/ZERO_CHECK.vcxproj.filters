@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\VisualStudio-Project\AircraftBattle\win32-build\CMakeFiles\8e6963f79dc6cb247d64fb30c7296a87\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1EF28438-D73B-3D93-BA18-CF3E472D28B7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
