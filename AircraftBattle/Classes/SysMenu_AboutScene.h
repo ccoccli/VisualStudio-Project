@@ -13,9 +13,6 @@
 #include "cocos2d.h"
 #include "SysMenuScene.h"
 
-#define BG             "loading.png"
-#define SCALING        1.5
-
 class SysMenuAboutScene : public cocos2d::Scene
 {
 public:

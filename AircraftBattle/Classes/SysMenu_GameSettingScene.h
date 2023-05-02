@@ -13,9 +13,6 @@
 #include "cocos2d.h"
 #include "SysMenuScene.h"
 
-#define BG             "loading.png"
-#define SCALING        1.5
-
 class SysMenuGameSettingScene : public cocos2d::Scene
 {
 public:
@@ -24,6 +21,8 @@ public:
   virtual bool init();
 
   void onCallBackButton(Ref* pSender);
+  void onSoundControl(Ref* pSender);
+  void onModeControl(Ref* pSender);
 
   CREATE_FUNC(SysMenuGameSettingScene);
 private:
