@@ -66,5 +66,28 @@
     <Image Include="..\Resources\images\titlescreen.jpg">
       <Filter>Resources\images</Filter>
     </Image>
+    <Image Include="..\Resources\images\LoadBar_dirt.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\Resources\images\LoadBar_grass.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+    <Image Include="..\Resources\images\Logo.png">
+      <Filter>Resources\images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\fonts\Brianne_s_hand.ttf">
+      <Filter>Resources\fonts</Filter>
+    </Font>
+    <Font Include="..\Resources\fonts\DWARVESC.TTF">
+      <Filter>Resources\fonts</Filter>
+    </Font>
+    <Font Include="..\Resources\fonts\fbUsv8C5eIBlack.ttf">
+      <Filter>Resources\fonts</Filter>
+    </Font>
+    <Font Include="..\Resources\fonts\houseofterror.ttf">
+      <Filter>Resources\fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>

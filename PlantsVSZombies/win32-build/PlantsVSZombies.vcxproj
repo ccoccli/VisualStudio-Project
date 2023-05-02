@@ -882,7 +882,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Resources\images\LoadBar_dirt.png" />
+    <Image Include="..\Resources\images\LoadBar_grass.png" />
+    <Image Include="..\Resources\images\Logo.png" />
     <Image Include="..\Resources\images\titlescreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\fonts\Brianne_s_hand.ttf" />
+    <Font Include="..\Resources\fonts\DWARVESC.TTF" />
+    <Font Include="..\Resources\fonts\fbUsv8C5eIBlack.ttf" />
+    <Font Include="..\Resources\fonts\houseofterror.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

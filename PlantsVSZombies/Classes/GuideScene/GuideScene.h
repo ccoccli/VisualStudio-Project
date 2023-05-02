@@ -10,7 +10,15 @@
 
 #include "cocos2d.h"
 
-#define TITLEBG "./images/titlescreen.jpg"
+#define TITLEBG       "./images/titlescreen.jpg"
+#define LOGO          "./images/Logo.png"
+#define PROGRASSDIRT  "./images/LoadBar_dirt.png"
+#define PROGRASSGRASS "./images/LoadBar_grass.png"
+
+#define STARTGAME     "Click here to start !"
+#define COPYRIGHT     "Power by Cocos2d-x4.0, overwrite by Ccoccli"
+
+#define SYSTEMFONT    "./fonts/Brianne_s_hand.ttf"
 
 class GuideScene : public cocos2d::Scene 
 {
@@ -21,10 +29,10 @@ public:
 
   virtual void update(float dt);
 
+  void onStartGame(Ref* pSender);
   CREATE_FUNC(GuideScene);
 private:
   cocos2d::Size winSize;
 };
-
 
 #endif /* _GUIDE_SCENE_H_ */
