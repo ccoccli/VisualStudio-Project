@@ -93,8 +93,7 @@ bool SysMenuScene::init()
 
 
   /* create label about copyright **/
-
-  auto label = Label::createWithSystemFont("Power by Cocos2d-X4.0, create by Ccoccli", "Arial", 20);
+  auto label = Label::createWithSystemFont(COPYRIGHT, "Arial", 20);
   label->setColor(Color3B(31, 45, 150));
   this->addChild(label, 1);
 
@@ -126,15 +125,21 @@ void SysMenuScene::update(float dt)
 
 void SysMenuScene::onNewGame(Ref* pSender)
 {
+  auto newGameScene = SysMenuNewGameScene::create();
 
+  Director::getInstance()->replaceScene(TransitionFade::create(1.2, newGameScene));
 }
 
 void SysMenuScene::onGameSetting(Ref* pSender)
 {
+  auto gameSetting = SysMenuGameSettingScene::create();
 
+  Director::getInstance()->replaceScene(TransitionFade::create(1.2, gameSetting));
 }
 
 void SysMenuScene::onAbout(Ref* pSender)
 {
+  auto aboutScene = SysMenuAboutScene::create();
 
+  Director::getInstance()->replaceScene(TransitionFade::create(1.2, aboutScene));
 }

@@ -811,10 +811,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\SysMenuScene.h" />
+    <ClInclude Include="..\Classes\SysMenu_AboutScene.h" />
+    <ClInclude Include="..\Classes\SysMenu_GameSettingScene.h" />
+    <ClInclude Include="..\Classes\SysMenu_NewGameScene.h" />
     <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\main.h" />
     <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\resource.h" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\SysMenuScene.cpp" />
+    <ClCompile Include="..\Classes\SysMenu_AboutScene.cpp" />
+    <ClCompile Include="..\Classes\SysMenu_GameSettingScene.cpp" />
+    <ClCompile Include="..\Classes\SysMenu_NewGameScene.cpp" />
     <ClCompile Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\main.cpp" />
     <ResourceCompile Include="F:\VisualStudio-Project\AircraftBattle\proj.win32\game.rc" />
     <ClInclude Include="F:\VisualStudio-Project\AircraftBattle\Resources\fonts\Marker Felt.ttf" />
@@ -889,6 +895,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <Image Include="..\Resources\logo.png" />
     <Image Include="..\Resources\logoBack.png" />
     <Image Include="..\Resources\menu.png" />
+    <Image Include="..\Resources\menuTitle.png" />
     <Image Include="..\Resources\textureOpaquePack.png" />
     <Image Include="..\Resources\textureTransparentPack.png" />
   </ItemGroup>
