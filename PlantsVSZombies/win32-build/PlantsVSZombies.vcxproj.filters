@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\VisualStudio-Project\PlantsVSZombies\Classes\AppDelegate.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\VisualStudio-Project\PlantsVSZombies\proj.win32\main.cpp">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\VisualStudio-Project\PlantsVSZombies\cocos2d\cocos\precheader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GuideScene\GuideScene.cpp">
+      <Filter>Source Files\Classes\GuideScene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\VisualStudio-Project\PlantsVSZombies\Classes\AppDelegate.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\PlantsVSZombies\proj.win32\main.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\VisualStudio-Project\PlantsVSZombies\proj.win32\resource.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GuideScene\GuideScene.h">
+      <Filter>Source Files\Classes\GuideScene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\VisualStudio-Project\PlantsVSZombies\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="F:\VisualStudio-Project\PlantsVSZombies\proj.win32\game.rc">
+      <Filter>Source Files\proj.win32</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{3A2942DC-CBBD-3013-8E0B-10308F383B72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{484AD292-4AC6-3C39-B34C-AB03ADDA64E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes">
+      <UniqueIdentifier>{8C4653D7-F262-343F-9743-D159C820DF18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\proj.win32">
+      <UniqueIdentifier>{619889E3-AC4C-391D-A0E9-83DDE5082A4C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\GuideScene">
+      <UniqueIdentifier>{2e085934-afa0-49ba-815c-38b103cbd211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\images">
+      <UniqueIdentifier>{9a1bf239-181a-4758-aa70-072719b07e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\audios">
+      <UniqueIdentifier>{a8249d7b-5409-4d5e-8fa5-6c4117bf8c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\fonts">
+      <UniqueIdentifier>{5ec7177f-783d-4787-bce4-5e88045a9f68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\images\titlescreen.jpg">
+      <Filter>Resources\images</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

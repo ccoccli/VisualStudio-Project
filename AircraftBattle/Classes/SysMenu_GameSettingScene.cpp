@@ -90,10 +90,10 @@ void SysMenuGameSettingScene::onCallBackButton(Ref* pSender)
 
 void SysMenuGameSettingScene::onSoundControl(Ref* pSender)
 {
-
+  /*啥都没有*/
 }
 
 void SysMenuGameSettingScene::onModeControl(Ref* pSender)
 {
-
+  /*啥都没有*/
 }
