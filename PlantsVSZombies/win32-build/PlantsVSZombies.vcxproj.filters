@@ -13,6 +13,9 @@
     <ClCompile Include="..\Classes\GuideScene\GuideScene.cpp">
       <Filter>Source Files\Classes\GuideScene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameMenuScene\GameMenuScene.cpp">
+      <Filter>Source Files\Classes\GameMenuScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="F:\VisualStudio-Project\PlantsVSZombies\Classes\AppDelegate.h">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\GuideScene\GuideScene.h">
       <Filter>Source Files\Classes\GuideScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMenuScene\GameMenuScene.h">
+      <Filter>Source Files\Classes\GameMenuScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +67,9 @@
     <Filter Include="Resources\fonts">
       <UniqueIdentifier>{5ec7177f-783d-4787-bce4-5e88045a9f68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Classes\GameMenuScene">
+      <UniqueIdentifier>{19bf1624-0cfc-4540-811e-4631bf4bcea5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\images\titlescreen.jpg">
@@ -89,5 +98,15 @@
     <Font Include="..\Resources\fonts\houseofterror.ttf">
       <Filter>Resources\fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\audios\GuideSceneBackMusic.mp3">
+      <Filter>Resources\audios</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\audios\evillaugh.ogg">
+      <Filter>Resources\audios</Filter>
+    </None>
   </ItemGroup>
 </Project>
